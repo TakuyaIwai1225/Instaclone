@@ -30,6 +30,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'rubyonrails2-tha12251010.c9users.io/' }
+  config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
