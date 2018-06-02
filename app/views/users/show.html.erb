@@ -1,4 +1,4 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
 <% @user = current_user %>
-<%= link_to "さっそくログインする", new_session_path %>
+<%= link_to "さっそくログインする", new_session_path  if current_user.blank? %>
