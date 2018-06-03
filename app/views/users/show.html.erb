@@ -5,7 +5,7 @@
     <% @user = current_user %>
     <p>
       <strong>Your Profile Image:</strong>
-      <%= image_tag(@user.image.url) if @user.image.url %>
+      <%= image_tag @user.image if @user.image %>
     </p>
     <%= link_to "さっそくログインする", new_session_path  if current_user.blank? %>
     <%= link_to "ユーザー情報を編集する", edit_user_path %>
