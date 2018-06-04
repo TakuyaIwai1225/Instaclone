@@ -1,11 +1,11 @@
-<h1>ブログ詳細画面</h1>
+<h1>投稿詳細画面</h1>
 <p>タイトル: <%= @blog.title %></p>
 <p>内容: <%= @blog.content %></p>
 <p>
   <strong>Image:</strong>
   <%= image_tag @blog.image %>
 </p>
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+<%= link_to "投稿一覧画面にもどる", blogs_path %>
 
 
 <% unless @blog.user == current_user %>

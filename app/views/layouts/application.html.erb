@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>岩井のBlog</title>
+    <title>InstaClone</title>
     <%= csrf_meta_tags %>
 　　<meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,21 +9,30 @@
   </head>
 
   <body>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
-      <% end %>
-
-      <% if logged_in? %>
-        <%= link_to "Blogへ", blogs_path %>
-        <%= link_to "profile", current_user %>
-        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Login", new_session_path %>
-      <% end %>
-  
-      <%= yield %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "InstaClone", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <% if logged_in? %>
+        
+          <li><%= link_to "Posts", blogs_path %></li>
+              <li><%= link_to "Profile", current_user %></li>
+              <li>
+                <%= link_to "Log out", session_path(current_user.id), method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", new_session_path %></li>
+          <li><%= link_to "Signup", new_user_path %>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <%= yield %>
 
     
       <footer>

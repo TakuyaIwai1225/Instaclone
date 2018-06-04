@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :blogs do
+  get 'staticpages/home'
+    resources :blogs do
     collection do
       post :confirm
     end
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :favorites, only: [:create, :destroy]
+  root 'staticpages#home'
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

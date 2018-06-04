@@ -1,16 +1,12 @@
-<h1>Blogs</h1>
-
 <div class="container">
   
-  <p class="img">
-  <%= image_tag('shakehand.png', size: '980x400') %></p>
   <div id="new-blog-link">
-    <%= link_to '新規ブログを作成する', new_blog_path %>
+    <%= link_to '投稿する', new_blog_path, class: "btn btn-primary" %>
   </div>
 
   <div class="row">
     <% @blogs.each do |blog| %>
-      <div class="col-xs-12 col-md-6 blog-panel">
+      <div class="col-xs-12 col-md-12 blog-panel">
         <h2><%= blog.title %></h2>
         <p><%= blog.content %></p>
           <div class="blog-links">
@@ -27,14 +23,14 @@
 </div>
 
   <h1>
-    お気に入りのブログ
+    お気に入り
   </h1>
 
   <div class="row">
     <% @favorite_blogs.each do |blog| %>
-      <div class="col-xs-12 col-md-6 blog-panel">
-        <h2><%= blog.title %></h2>
-        <p><%= blog.content %></p>
+      <div class="col-xs-12 col-md-12 blog-panel">
+        <h2>title: <%= blog.title %></h2>
+        <p>Image <%= image_tag blog.image %></p>
         <div class="blog-links">
           <%= link_to 'Show', blog, class: 'btn btn-default' %>
         </div>
